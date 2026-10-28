@@ -251,6 +251,11 @@ a.stat:hover { border-color: var(--accent); text-decoration: none; }
   object-fit: cover; background: #fff; border: 1px solid var(--border);
 }
 .org-logo.pad { object-fit: contain; padding: 4px; }
+/* Stand-in tile when no logo file exists yet */
+.org-initials {
+  display: grid; place-items: center; background: var(--surface-2);
+  font: 600 .95rem var(--serif); color: var(--accent); letter-spacing: .02em;
+}
 @media (max-width: 600px) {
   .entry-top { align-items: flex-start; gap: 12px; }
   .org-logo { width: 40px; height: 40px; margin-top: 2px; }
