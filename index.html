@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=12">
   <script>
     // Mark JS as available (tabs only hide content when JS runs) and apply saved theme before paint
     document.documentElement.classList.add("js");
@@ -70,6 +70,13 @@
   <symbol id="i-rg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="sans-serif">RG</text></symbol>
   <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 3 2.7 5.6 6.1.8-4.5 4.3 1.1 6.1L12 16.9 6.6 19.8l1.1-6.1-4.5-4.3 6.1-.8Z"/></symbol>
+  <symbol id="i-tab-about" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></g></symbol>
+  <symbol id="i-tab-experience" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></g></symbol>
+  <symbol id="i-tab-education" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5Z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5M22 9v6"/></g></symbol>
+  <symbol id="i-tab-publications" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></g></symbol>
+  <symbol id="i-tab-projects" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></g></symbol>
+  <symbol id="i-tab-skills" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></g></symbol>
+  <symbol id="i-tab-service" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></g></symbol>
 </svg>
 <div class="backdrop" aria-hidden="true" style="position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none">
   <svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;left:0;bottom:0;width:100%;height:48vh" fill="none">
@@ -122,29 +129,30 @@
   <!-- ================= MAIN ================= -->
   <main>
     <nav class="tabs" role="tablist" aria-label="CV sections">
-      <button class="tab" role="tab" id="tab-about" data-tab="about" aria-controls="panel-about" aria-selected="false" tabindex="-1">About</button>
-      <button class="tab" role="tab" id="tab-experience" data-tab="experience" aria-controls="panel-experience" aria-selected="false" tabindex="-1">Experience</button>
-      <button class="tab" role="tab" id="tab-education" data-tab="education" aria-controls="panel-education" aria-selected="false" tabindex="-1">Education</button>
-      <button class="tab" role="tab" id="tab-publications" data-tab="publications" aria-controls="panel-publications" aria-selected="false" tabindex="-1">Publications</button>
-      <button class="tab" role="tab" id="tab-projects" data-tab="projects" aria-controls="panel-projects" aria-selected="false" tabindex="-1">Projects</button>
-      <button class="tab" role="tab" id="tab-skills" data-tab="skills" aria-controls="panel-skills" aria-selected="false" tabindex="-1">Skills</button>
-      <button class="tab" role="tab" id="tab-service" data-tab="service" aria-controls="panel-service" aria-selected="false" tabindex="-1">Service &amp; Awards</button>
+      <button class="tab" role="tab" id="tab-about" data-tab="about" aria-controls="panel-about" aria-selected="false" tabindex="-1"><svg class="tab-icon" aria-hidden="true"><use href="#i-tab-about"/></svg><span class="tab-label">About</span></button>
+      <button class="tab" role="tab" id="tab-experience" data-tab="experience" aria-controls="panel-experience" aria-selected="false" tabindex="-1"><svg class="tab-icon" aria-hidden="true"><use href="#i-tab-experience"/></svg><span class="tab-label">Experience</span></button>
+      <button class="tab" role="tab" id="tab-education" data-tab="education" aria-controls="panel-education" aria-selected="false" tabindex="-1"><svg class="tab-icon" aria-hidden="true"><use href="#i-tab-education"/></svg><span class="tab-label">Education</span></button>
+      <button class="tab" role="tab" id="tab-publications" data-tab="publications" aria-controls="panel-publications" aria-selected="false" tabindex="-1"><svg class="tab-icon" aria-hidden="true"><use href="#i-tab-publications"/></svg><span class="tab-label">Publications</span></button>
+      <button class="tab" role="tab" id="tab-projects" data-tab="projects" aria-controls="panel-projects" aria-selected="false" tabindex="-1"><svg class="tab-icon" aria-hidden="true"><use href="#i-tab-projects"/></svg><span class="tab-label">Projects</span></button>
+      <button class="tab" role="tab" id="tab-skills" data-tab="skills" aria-controls="panel-skills" aria-selected="false" tabindex="-1"><svg class="tab-icon" aria-hidden="true"><use href="#i-tab-skills"/></svg><span class="tab-label">Skills</span></button>
+      <button class="tab" role="tab" id="tab-service" data-tab="service" aria-controls="panel-service" aria-selected="false" tabindex="-1"><svg class="tab-icon" aria-hidden="true"><use href="#i-tab-service"/></svg><span class="tab-label">Service</span></button>
     </nav>
 
     <!-- ===== ABOUT ===== -->
     <section class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
       <div class="card">
         <h2>About me</h2>
-        <!-- At-a-glance numbers: computed in script.js; the values below are fallbacks -->
-        <div class="stats">
-          <a class="stat" href="#publications" data-goto="publications"><span class="stat-num" id="statPubs">16</span><span class="stat-label">Publications</span></a>
-          <a class="stat" href="#publications" data-goto="publications"><span class="stat-num" id="statVenues">13</span><span class="stat-label">Venues</span></a>
-          <a class="stat" href="#experience" data-goto="experience"><span class="stat-num" id="statYears">13</span><span class="stat-label">Years in ML research</span></a>
-          <a class="stat" id="statStarsWrap" href="https://github.com/aiim-research/GRETEL" target="_blank" rel="noopener" hidden><span class="stat-num" id="statStars"></span><span class="stat-label">GRETEL stars on GitHub</span></a>
-        </div>
         <p class="lead">I’m a machine learning researcher with a PhD in Artificial Intelligence from the Gran Sasso Science Institute, where I worked on explaining the decisions of graph neural networks.</p>
         <p>My work moves between research and practice: I design ML systems for recommendation and anomaly detection, and I build open tools such as GRETEL so that other researchers can test explanation methods on equal terms. Before my PhD I lectured in Database Systems and Information Retrieval at the University of Havana and led research there in data mining and AI.</p>
         <p>I’m now bringing this to Earth Observation, where interpretable anomaly detection can make large-scale satellite data easier to trust and act on.</p>
+      </div>
+
+      <!-- At-a-glance numbers: computed in script.js; the values below are fallbacks -->
+      <div class="stats">
+        <a class="stat" href="#publications" data-goto="publications"><span class="stat-num" id="statPubs">16</span><span class="stat-label">Publications</span></a>
+        <a class="stat" href="#publications" data-goto="publications"><span class="stat-num" id="statVenues">13</span><span class="stat-label">Venues</span></a>
+        <a class="stat" href="#experience" data-goto="experience"><span class="stat-num" id="statYears">13</span><span class="stat-label">Years in ML research</span></a>
+        <a class="stat" id="statStarsWrap" href="https://github.com/aiim-research/GRETEL" target="_blank" rel="noopener" hidden><span class="stat-num" id="statStars"></span><span class="stat-label">GRETEL stars</span></a>
       </div>
 
       <div class="card">
