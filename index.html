@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
   <script>
     // Mark JS as available (tabs only hide content when JS runs) and apply saved theme before paint
     document.documentElement.classList.add("js");
@@ -135,6 +135,13 @@
     <section class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
       <div class="card">
         <h2>About me</h2>
+        <!-- At-a-glance numbers: computed in script.js; the values below are fallbacks -->
+        <div class="stats">
+          <a class="stat" href="#publications" data-goto="publications"><span class="stat-num" id="statPubs">16</span><span class="stat-label">Publications</span></a>
+          <a class="stat" href="#publications" data-goto="publications"><span class="stat-num" id="statVenues">13</span><span class="stat-label">Venues</span></a>
+          <a class="stat" href="#experience" data-goto="experience"><span class="stat-num" id="statYears">13</span><span class="stat-label">Years in ML research</span></a>
+          <a class="stat" id="statStarsWrap" href="https://github.com/aiim-research/GRETEL" target="_blank" rel="noopener" hidden><span class="stat-num" id="statStars"></span><span class="stat-label">GRETEL stars on GitHub</span></a>
+        </div>
         <p class="lead">I’m a machine learning researcher with a PhD in Artificial Intelligence from the Gran Sasso Science Institute, where I worked on explaining the decisions of graph neural networks.</p>
         <p>My work moves between research and practice: I design ML systems for recommendation and anomaly detection, and I build open tools such as GRETEL so that other researchers can test explanation methods on equal terms. Before my PhD I lectured in Database Systems and Information Retrieval at the University of Havana and led research there in data mining and AI.</p>
         <p>I’m now bringing this to Earth Observation, where interpretable anomaly detection can make large-scale satellite data easier to trust and act on.</p>
@@ -234,8 +241,13 @@
         <h2>Education</h2>
         <ol class="timeline">
           <li class="entry">
-            <div class="entry-head"><h3>Ph.D. in Artificial Intelligence</h3><span class="when">2020 – 2025</span></div>
-            <div class="org">Gran Sasso Science Institute <span class="where">· L’Aquila, Italy</span></div>
+            <div class="entry-top">
+              <img class="org-logo pad" src="images/Gran_Sasso_Science_Institute_logo.svg" width="44" height="44" alt="" loading="lazy">
+              <div class="entry-top-text">
+                <div class="entry-head"><h3>Ph.D. in Artificial Intelligence</h3><span class="when">2020 – 2025</span></div>
+                <div class="org">Gran Sasso Science Institute <span class="where">· L’Aquila, Italy</span></div>
+              </div>
+            </div>
             <p class="note">Graduated cum laude</p>
             <ul>
               <li>Developed several novel eXplainable AI techniques for Graph Neural Networks.</li>
@@ -243,16 +255,26 @@
             </ul>
           </li>
           <li class="entry">
-            <div class="entry-head"><h3>M.Sc. in Computer Science</h3><span class="when">2017 – 2019</span></div>
-            <div class="org">University of Havana <span class="where">· Havana, Cuba</span></div>
+            <div class="entry-top">
+              <img class="org-logo" src="images/havana_university_logo.svg" width="44" height="44" alt="" loading="lazy">
+              <div class="entry-top-text">
+                <div class="entry-head"><h3>M.Sc. in Computer Science</h3><span class="when">2017 – 2019</span></div>
+                <div class="org">University of Havana <span class="where">· Havana, Cuba</span></div>
+              </div>
+            </div>
             <ul>
               <li>Courses included Information Extraction, Business Intelligence and Analytics, and Regression Analysis.</li>
               <li>Thesis on anomaly detection algorithms for complex networks, with applications to money laundering in Bitcoin and influencer identification on Twitter.</li>
             </ul>
           </li>
           <li class="entry">
-            <div class="entry-head"><h3>B.Sc. in Computer Science</h3><span class="when">2008 – 2013</span></div>
-            <div class="org">University of Havana <span class="where">· Havana, Cuba</span></div>
+            <div class="entry-top">
+              <img class="org-logo" src="images/havana_university_logo.svg" width="44" height="44" alt="" loading="lazy">
+              <div class="entry-top-text">
+                <div class="entry-head"><h3>B.Sc. in Computer Science</h3><span class="when">2008 – 2013</span></div>
+                <div class="org">University of Havana <span class="where">· Havana, Cuba</span></div>
+              </div>
+            </div>
             <ul>
               <li>Courses included Artificial Intelligence, Information Retrieval, Algorithm Design and Analysis, and Graph Theory.</li>
               <li>Thesis: a framework for detecting telecom fraud.</li>
@@ -441,6 +463,6 @@
 </div>
 
 <footer>© <span id="year">2026</span> Mario Alfonso Prado Romero. <span id="updated">Last updated October 2026.</span></footer>
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>

@@ -181,6 +181,28 @@ if (!isNaN(modified)) {
     "Last updated " + modified.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) + ".";
 }
 
+// ===== At-a-glance numbers (About tab) =====
+const RESEARCH_START = 2013;  // first ML research role (Advanced Technologies Application Center)
+function renderStats() {
+  // Same venue in different years counts once: "ECML PKDD 2023" and "ECML PKDD 2024" -> "ECML PKDD"
+  const venues = new Set(PUBLICATIONS.map(p => p.venue.replace(/\s*\b(19|20)\d{2}\b/, "").trim().toLowerCase()));
+  document.getElementById("statPubs").textContent = PUBLICATIONS.length;
+  document.getElementById("statVenues").textContent = venues.size;
+  document.getElementById("statYears").textContent = new Date().getFullYear() - RESEARCH_START;
+  // GitHub stars come from stats.json, refreshed daily by .github/workflows/update-stats.yml.
+  // If the file is missing or unreadable the tile simply stays hidden.
+  fetch("stats.json", { cache: "no-cache" })
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => {
+      if (d && Number.isFinite(d.gretel_stars)) {
+        document.getElementById("statStars").textContent = d.gretel_stars.toLocaleString("en");
+        document.getElementById("statStarsWrap").hidden = false;
+      }
+    })
+    .catch(() => {});
+}
+
 // ===== Init =====
 renderPublications();
+renderStats();
 showTab(location.hash.slice(1) || "about", { updateHash: false, scroll: false });
